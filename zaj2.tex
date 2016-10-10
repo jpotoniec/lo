@@ -1,0 +1,145 @@
+\documentclass{mwart}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2cm]{geometry}
+\usepackage{tikz}
+\usepackage{diagbox}
+\usepackage{graphviz}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{stmaryrd}
+\usepackage{marvosym}
+
+
+%nie radzi sobie z plznakami
+%\usepackage{comment}
+%\specialcomment{solution}{\begin{verse}}{\end{verse}}
+%\excludecomment{solution}
+
+%\newcommand{\solution}[1]{\begin{verse}#1\end{verse}}
+\newcommand{\solution}[1]{\ignorespaces}
+
+\newcommand{\nand}{\ensuremath\uparrow}
+\newcommand{\nor}{\ensuremath\downarrow}
+\newcommand{\xor}{\ensuremath\oplus}
+\renewcommand{\iff}{\ensuremath\leftrightarrow}
+
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+
+\renewcommand{\iff}{\leftrightarrow}
+\pagestyle{empty}
+\linespread{1.3}
+\newcommand{\ans}[1]{}
+\begin{document}
+\section{Składnia rachunku predykatów i teoria mnogości}
+Stałe: $a, b, c$, zmienne: $x, y, z$, symbole funkcyjne: $f, g, h$, symbole predykatywne: $p, q, r$.
+
+\begin{enumerate}
+\item Alfabet grecki jest chętnie wykorzystywanym źródłem symboli matematycznych. Uzupełnij poniższą tabelę:
+\begin{tabular}{lp{6cm}|lp{6cm}}
+litera & nazwa & litera & nazwa \\
+\hline
+$\mu$ & mi & \ldots & gamma \\
+$\sigma$ & \ldots & $\lambda$ & \ldots \\
+\ldots & theta & \ldots & delta \\
+$\omega$ & \ldots & \ldots & phi \\
+\end{tabular}
+	\item Zaznacz poprawne formuły rachunku predykatów
+		\begin{multicols}{3}
+			\begin{enumerate}
+				\item $\forall x\, (p(x)\to \exists y\, q(y))$
+				\item $\forall a\, (p(a)\to \exists y\, q(f(y)))$
+				\item $\forall x\, (p(x)\to q(g(, y)))$
+				\item $p(x)\to \exists q\exists y\, q(y)$
+				\item $p(a)\to \exists y\, p(a)$
+				\item $\forall x\, (p(x)\to q(x))$
+				\item $\forall (x\, p(x)\to q(x))$
+				\item $\forall x\, (p(x)\to) q(x)$				
+				\item $\forall x\, (p(x)\to \exists x\, q(x))$
+			\end{enumerate}
+		\end{multicols}
+		
+	\item Uzupełnij tabelkę przez zaznaczenie, która kategoria pasuje do którego wyrażenia.
+	
+	\begin{tabular}{|l|l|l|l|l|}
+	\hline	
+	wyrażenie & atom & literał & klauzula & formuła \\
+	\hline
+	$pada(deszcz) \lor swieci(slonce)$ & & & & \\
+	\hline	
+	$\lnot pada(deszcz) \lor swieci(slonce)$ & & & & \\
+	\hline	
+	$pada(deszcz) \land swieci(slonce)$ & & & & \\
+	\hline	
+	$pada(deszcz)$ & & & & \\
+	\hline	
+	$\lnot pada(deszcz)$ & & & & \\
+	\hline	
+	$pada(x, y)$ & & & & \\	
+	\hline
+	\end{tabular}
+
+
+	\item Połącz formuły i odpowiadające im odczytania w języku polskim. Uwaga: niektóre zdania nie mają odpowiadających im formuł.
+			\begin{multicols}{2}
+	\begin{enumerate}
+	\item $pada(deszcz) \lor swieci(slonce)$
+	\item $pada(deszcz) \xor swieci(slonce)$
+	\item $pada(deszcz) \to swieci(slonce)$
+	\item $pada(deszcz) \iff swieci(slonce)$
+		\end{enumerate}
+		\columnbreak
+	\begin{enumerate}
+	\item Pada deszcz wtedy, i tylko wtedy gdy świeci słonce.
+\item Pada deszcz lub świeci słońce.
+\item Pada deszcz wtedy, i tylko wtedy gdy jest mokro.
+\item Pada deszcz albo świeci słonce.
+\item Jeżeli pada deszcz, to świeci słonce.
+\item Jeżeli pada deszcz, to jest mokro.
+	\end{enumerate}	
+		\end{multicols}
+	\item Połącz formuły i odpowiadające im odczytania w języku polskim. Uwaga: niektóre zdania nie mają odpowiadających im formuł.
+			\begin{multicols}{2}
+	\begin{enumerate}
+	\item $\forall x\,(szczeka(x) \to pies(x))$
+	\item $\exists x\,(szczeka(x) \land \lnot pies(x))$
+	\end{enumerate}
+	\columnbreak
+	\begin{enumerate}
+	\item Istnieje coś, co szczeka i nie jest psem (inaczej: istnieje $x$, że $x$ szczeka i $x$ nie jest psem).
+\item Istnieje coś, co jeżeli szczeka, to jest psem (inaczej: istnieje $x$, że jeżeli $x$ szczeka, to $x$ jest psem).
+\item Wszystko szczeka i nie jest psem (inaczej: dla każdego $x$, $x$ szczeka i nieprawda, że $x$ jest psem)
+\item Wszystko, co szczeka jest psem (inaczej: dla każdego $x$, jeżeli $x$ szczeka, to $x$ jest psem).
+\item Istnieje coś, co szczeka i jest psem (inaczej: istnieje $x$, że $x$ szczeka i $x$ jest psem).
+	\end{enumerate}
+	\end{multicols}
+\item (Pytanie dodatkowe) Co szczeka, a nie jest psem?	
+		\item Domknij poniższe formuły.
+		\begin{multicols}{2}
+			\begin{enumerate}
+				\item $p(f(x), a)$ (uniwersalnie)
+				\item $p(x) \to q(a)$ (egzystencjalnie)
+				\item $p(f(a))$ (egzystencjalnie)
+				\item $p(x,y)\to (q(a)\to r(y))$ (uniwersalnie)
+			\end{enumerate}
+		\end{multicols}
+\item Zapisz odczytanie następującej formuły rachunku predykatów:
+\[ \forall x\, (wombat(x) \to \forall y\,(zjada(x,y)\iff roslina(y)) \] 
+\item Zapisz formułę rachunku predykatów, odpowiadającą następującemu zdaniu: \emph{istnieje zwierzę, które je wyłącznie zwierzęta, które jedzą zwierzęta}
+\item (Pytanie dodatkowe) Jakiego gatunku jest to zwierzę?
+\item Niech $A\subseteq \Omega$:
+\begin{enumerate}
+\item $A\cup A=\ldots$
+\item $A\cap A=\ldots$
+\item $A\cup \Omega=\ldots$
+\item $A\cap \Omega=\ldots$
+\item Jeżeli $\Omega\subseteq A$, to co wiadomo o $A$?
+\item Jeżeli $A\subseteq \emptyset$, to co wiadomo o $A$?
+\end{enumerate}
+\end{enumerate}
+
+
+\end{document}
