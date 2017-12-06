@@ -1,0 +1,78 @@
+\documentclass{mwart}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2cm]{geometry}
+\usepackage{tikz}
+\usepackage{diagbox}
+\usepackage{graphviz}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{stmaryrd}
+\usepackage{marvosym}
+
+\DeclareMathOperator{\dod}{ma\_dodatek}
+\DeclareMathOperator{\weg}{wege}
+\DeclareMathOperator{\pizza}{placek}
+\DeclareMathOperator{\warzywo}{warzywo}
+\DeclareMathOperator{\ser}{ser}
+
+
+%nie radzi sobie z plznakami
+%\usepackage{comment}
+%\specialcomment{solution}{\begin{verse}}{\end{verse}}
+%\excludecomment{solution}
+
+%\newcommand{\solution}[1]{\begin{verse}#1\end{verse}}
+\newcommand{\solution}[1]{\ignorespaces}
+
+\newcommand{\nand}{\ensuremath\uparrow}
+\newcommand{\nor}{\ensuremath\downarrow}
+\newcommand{\xor}{\ensuremath\oplus}
+\renewcommand{\iff}{\ensuremath\leftrightarrow}
+
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+
+\renewcommand{\iff}{\leftrightarrow}
+\pagestyle{empty}
+\linespread{1.3}
+\newcommand{\ans}[1]{}
+\begin{document}
+
+\section*{Uzgadnianie i skolemizacja}
+Stałe: $a, b, c$, zmienne: $u, v, w, x, y, z$, symbole funkcyjne: $f, g, h$, symbole predykatywne: $p, q, r$.
+
+\begin{enumerate}
+	\item Niech $E=p(x, f(y), g(u), z)$, $\sigma=\{u\mapsfrom y, y\mapsfrom f(a), x\mapsfrom g(u)\}$ i $\theta=\{x\mapsfrom f(g(y)), y\mapsfrom u, z\mapsfrom f(y)\}$. Oblicz następujące wyrażenia:
+		\begin{multicols}{5}
+			\begin{enumerate}
+				\item $E\sigma$
+				\item $E\theta$
+				\item $E\sigma\theta$
+				\item $\mu=\theta\sigma$
+				\item $E\mu$
+			\end{enumerate}
+		\end{multicols}
+	\item Oblicz najmniejsze podstawienie uzgadniające dla poniższych par termów:
+		\begin{enumerate}
+			\item $p(a, x, f(g(y)))$ oraz $p(y, f(z), f(z))$
+			\item $p(x, g(f(a)), f(x))$ oraz $p(f(a), y, y)$
+			\item $p(x, g(f(a)), f(x))$ oraz $p(f(y), z, y)$
+			\item $p(a, x, f(g(y)))$ oraz $p(z, h(z, u), f(u))$
+			\item $p(x, f(x))$ oraz $p(f(y), y)$
+		\end{enumerate}
+	\item Dokonaj skolemizacji następujących formuł:
+		\begin{enumerate}
+			\item $\forall x\,(p(x)\to\exists y\,q(y))$
+			\item $\forall x\forall y\,(\exists x\,p(x)\land \exists v\,(q(x, v)\to \exists v\,q(y,v)))$
+			\item $\exists x\,(\lnot\exists y\,p(y)\to \exists z\,(q(z)\to r(x)))$
+			\item $[\forall x\,(p(x)\to p(x, x))]\to p(f(x), a)$ Uwaga: domnij formułę egzystencjalnie.
+			\item $\forall y\,[(\forall x\,(p(x)\to \exists x\, q(x))) \to (\forall x\,p(x, y)\to \forall x\,q(x))]$
+			\item $\left(\exists x\, p(x,a)\right)\oplus\left(\forall x\exists y\, q(x,y)\right)$
+		\end{enumerate}
+\end{enumerate}
+
+
+\end{document}
